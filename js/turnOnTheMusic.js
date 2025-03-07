@@ -3,13 +3,12 @@ let isMuted = true; // Начинаем с выключенного звука
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtube-iframe', {
-        videoId: '1aENT6m0Jsw', // ID видео
+        videoId: '1aENT6m0Jsw', 
         playerVars: {
             autoplay: 1,
             controls: 0,
             rel: 1,
-            start: 0,
-            mute: 1 // Сначала звук выключен
+            mute: 1 
         },
         events: {
             onReady: onPlayerReady
@@ -19,6 +18,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     document.getElementById('sound-toggle').addEventListener('click', function() {
+        player.playVideo();
         if (isMuted) {
             player.unMute(); // Включить звук
         } else {
